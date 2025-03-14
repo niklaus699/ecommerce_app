@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="demo.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div id="body">
+    <div class="header">
+      <div class="nav-container">
+        <img src="./images/icon-menu.svg" alt="menu" id="menuIcon" class="menu-icon">
+        <img src="./images/logo.svg" alt="" class="head-text">
+        <nav class="menu" id="mobileMenu">
+          <img src="./images/icon-close.svg" alt="close" id="closeIcon">
+          <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+        
+      </div>
+      <div class="profile-container">
+        <div><img src="./images/icon-cart.svg" alt="cart"> <div id="count" class="cart-count-container"><span id="cartQuantityCount"></span></div></div>
+        <div><img src="./images/image-avatar.png" alt="avatar" class="avatar"></div>
+      </div>
+    </div>
+    <div>
+      <div class="image-product">
+        <img src="./images/image-product-1-thumbnail.jpg" alt="" class="current-image" id="currentImage">
+        <div class="controls">
+          <div class="previous-button" id="previous"><img src="./images/icon-previous.svg" alt="previous"></div>
+          <div class="next-button" id="next"><img src="./images/icon-next.svg" alt="next"></div>
+        </div>
+        <div id="cartContent" class="cart-content"></div>
+      </div>
+    </div>
+  
+    <div class="product-info-container">
+      <p class="hero-header">Sneaker Company</p>
+      <h1 class="product-header">Klaus's Limited Edition <br>Sneakers</h1>
+      <p class="product-info">
+        These low-profile sneakers are your perfect <br>casual wear companion. Featuring a 
+        durable <br>rubber outer sole, they’ll withstand everything <br>the weather can offer.
+      </p>
+      <div class="product-price">
+        <div class="unit-price">
+          <h1>$125.00</h1>
+          <div class="percent"><span>50%</span></div>
+       </div>
+        <p class="discount">$250.00</p>
+      </div>
+      <div class="cart-container">
+        <div id="removeFromCart"> <img src="./images/icon-minus.svg" alt="-"></div>
+        <div><span id="cartQuantity" class="cart-quantity" >0</span></div>
+        <div id="addToCart"><img src="./images/icon-plus.svg" alt="+"></div>
+      </div>
+      <div class="add-to-cart" id="pushToCart">
+        <div class="add-to-cart-content">
+          <img src="./images/icon-cart.svg" alt="">
+          <span>Add to cart</span>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
