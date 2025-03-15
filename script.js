@@ -101,13 +101,13 @@ const cartText = document.createElement('span');
 const underline = document.createElement('hr');
 const cartQuantity = document.getElementById('count');
 const cartQuantityCount = document.getElementById('cartQuantityCount');
-
+const lastVariable = document.getElementById("imageProductDiv");
 
 pushToCart.addEventListener('click', () => {
     cartContent.style.display ="grid";
     cartContent.style.flexDirection ="column";
     window.addEventListener('click', (e) => {
-        if (currentImage.contains(e.target)) {
+        if (!lastVariable.contains(e.target) && e.target !==cartContent ) {
         cartContent.style.display = 'none';}})
     // underline.style.color="blue";
     underline.style.width="99%";
