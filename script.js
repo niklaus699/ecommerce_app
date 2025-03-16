@@ -21,7 +21,9 @@ closeIcon.addEventListener('click', () => {
 if (window.innerWidth < 768) {
     window.addEventListener('click', (e) => {
     if (!mobileMenu.contains(e.target) && e.target !== menuIcon) {
-    mobileMenu.style.display = 'none';}})}
+        console.log(e.target);
+        mobileMenu.style.display = 'none';}})
+    }
 
 
 // Image array
@@ -81,11 +83,14 @@ removeFromCart.addEventListener('click', () => {
 
 const updateState = () => {
     cartContent.innerHTML=""
+    cartContent.classList.remove('finalCartContent');
     cartContent.classList.remove('cart-content')
     cartContent.classList.add("cart-content-empty");
     productInfo.className = "empty-text";
     productInfo.textContent = "Your cart is empty.";
     cartContent.append(cartText,underline, productInfo);
+    cartContent.style.visibility="visible";
+    cartCount.textContent = `${count}`;
 }
 
 const purchaseContainer = document.createElement('div');
@@ -105,11 +110,12 @@ const lastVariable = document.getElementById("imageProductDiv");
 
 pushToCart.addEventListener('click', () => {
     cartContent.style.display ="grid";
+    cartContent.style.visibility="visible";
     cartContent.style.flexDirection ="column";
     window.addEventListener('click', (e) => {
-        if (!lastVariable.contains(e.target) && e.target !==cartContent ) {
-        cartContent.style.display = 'none';}})
-    // underline.style.color="blue";
+        if (cartContent.contains(e.target)) {
+            cartContent.style.visibility = 'hidden';
+        }})
     underline.style.width="99%";
     underline.style.position="absolute";
     underline.style.top="20%";
@@ -118,10 +124,7 @@ pushToCart.addEventListener('click', () => {
 
     if (count > 0){
         cartContent.innerHTML ="";
-        // cartText.classList.remove("cart-text-info");
-        // cartText.classList.add("cart-text");
-        // cartText.style.position="static";
-        // cartText.append(underline);
+        cartContent.classList.remove('finalCartContent');
         cartContent.classList.remove('cart-content-empty');
         cartContent.classList.add("cart-content");
         btnTxt.textContent = "Checkout";
@@ -134,7 +137,6 @@ pushToCart.addEventListener('click', () => {
         purchaseImage.className = "thumbnail";
         purchaseContainer.className = "purchase-container";
         purchaseInfoContainer.className ="purchase-info";
-        // priceByCount.className ="total-price";
         let total = count * price;
         priceByCount.textContent = `$125.00 x ${count}  `;
         productTotal.textContent = `    $${total}`;
@@ -152,9 +154,21 @@ pushToCart.addEventListener('click', () => {
             cartQuantity.style.visibility="hidden";
             updateState();
         })
+
+        checkoutBtn.addEventListener('click', () => {
+            cartContent.innerHTML ="";
+            const thankYouText = document.createElement('span');
+            const orderIsComing = document.createElement('p');
+            orderIsComing.textContent="Your Order is on the way";
+            thankYouText.textContent="Thank You For Shopping with us";
+            cartContent.style.display= "flex";
+            cartContent.classList.remove('cart-content');
+            cartContent.classList.add('finalCartContent');
+            cartContent.append(thankYouText, orderIsComing);
+        })
+
     }
     else {
-
         updateState();
         cartQuantity.style.visibility="hidden";
     }
